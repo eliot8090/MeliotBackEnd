@@ -9,4 +9,5 @@ public interface PedidoService {
     OrderResponseDTO crearPedido(OrderRequestDTO request);
     List<OrderResponseDTO> listarPedidos(Long usuarioId);
     OrderResponseDTO obtenerPedido(Long id);
+    OrderResponseDTO actualizarEstado(Long id, String nuevoEstado);
 }

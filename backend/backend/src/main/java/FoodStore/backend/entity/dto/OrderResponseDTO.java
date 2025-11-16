@@ -12,7 +12,7 @@ public class OrderResponseDTO {
     Long id;
     LocalDateTime fecha;
     Double total;
-    Long usuarioId;
+    UsuarioDTO usuario;
     String telefono;
     String direccion;
     String metodoPago;
@@ -22,11 +22,26 @@ public class OrderResponseDTO {
 
     @Value
     @Builder
+    public static class UsuarioDTO {
+        Long id;
+        String nombre;
+        String email;
+    }
+
+    @Value
+    @Builder
     public static class OrderLineDTO {
         Long productoId;
-        String productoNombre;
+        ProductoDTO producto;
         Integer cantidad;
         Double precioUnitario;
         Double subtotal;
+    }
+
+    @Value
+    @Builder
+    public static class ProductoDTO {
+        Long id;
+        String nombre;
     }
 }

@@ -16,7 +16,11 @@ public class Pedido {
 
     @Column(nullable = false)
     private Double total;
-    private Long usuarioId;
+    // 🔁 Relación real con Usuario
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
+
     private String telefono;
     private String direccion;
     private String metodoPago;
@@ -24,6 +28,7 @@ public class Pedido {
 
     @Enumerated(EnumType.STRING)
     private Estado estado;
+
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> items;
 

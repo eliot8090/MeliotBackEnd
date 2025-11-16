@@ -32,4 +32,12 @@ public class PedidoController {
     public ResponseEntity<OrderResponseDTO> obtener(@PathVariable Long id) {
         return ResponseEntity.ok(pedidoService.obtenerPedido(id));
     }
+    @PutMapping("/{id}/estado")
+    public ResponseEntity<OrderResponseDTO> actualizarEstado(
+            @PathVariable Long id,
+            @RequestParam String estado) {
+        var actualizado = pedidoService.actualizarEstado(id, estado);
+        return ResponseEntity.ok(actualizado);
+    }
+
 }
